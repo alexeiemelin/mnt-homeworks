@@ -1,5 +1,13 @@
 ---
 clickhouse:
   hosts:
-    centos7:
-      ansible_connection: docker
+    clickhouse-1:
+      ansible_host: 51.250.94.236
+lighthouse:
+  hosts:
+    lighthouse-1:
+      ansible_host: 51.250.91.99
+vector:
+  hosts:
+    vector-1:
+      ansible_host: 51.250.94.239
