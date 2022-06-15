@@ -3,8 +3,8 @@
 мы собираем с помощью Vector и передаем в СУБД clickhouse и 
 вывод результата в графиках с помощью lighthouse.
 
-В каталоге /terraform лежит файл ```main.tf``` в котором описана инфраструктура из 3-ех виртуальных 
-машин (на centos7). Lighthouse-1, clickhouse-1, vector-1.
+В ```/terrafrom/main.tf``` описана инфраструктура из 3-ех виртуальных машин (на centos7): 
+lighthouse-1, clickhouse-1, vector-1.
 Разворачиваем эти машины на yandex cloud.
 В дальнейшем ip адреса этих машин мы вносим в соответствующие поля ```/inventory/prod.yml```.
 С помощью ansible мы установим на созданную инфраструктуру стек vector/clickhouse/lighthouse.
