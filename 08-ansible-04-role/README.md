@@ -29,6 +29,23 @@
 10. Выложите playbook в репозиторий.
 11. В ответ приведите ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
+Ответ: Результат загрузки ролей и далее ссылки на них и playbook
+```bash
+user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook$ ansible-galaxy role install -r requirements.yml -p roles
+Starting galaxy role install process
+- extracting clickhouse to /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse
+- clickhouse (1.11.0) was installed successfully
+- extracting lighthouse-role to /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/lighthouse-role
+- lighthouse-role (1.0.0) was installed successfully
+- extracting vector-role to /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role
+- vector-role (1.0.0) was installed successfully
+```
+https://github.com/alexeiemelin/lighthouse-role
+
+https://github.com/alexeiemelin/vector-role
+
+https://github.com/alexeiemelin/mnt-homeworks/tree/MNT-13/08-ansible-04-role/playbook
+
 ---
 
 ### Как оформить ДЗ?
