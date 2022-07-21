@@ -26,7 +26,7 @@ user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing$ cd clickhouse
 user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing/clickhouse$ molecule test -s centos7
 CRITICAL 'molecule/centos7/molecule.yml' glob failed.  Exiting.
 ```
-После этого создается каталог clickhouse, но роль не загружается с ansible-galaxy. Значения всех файлов по умолчанию.
+Делаем init role clickhouse, создается каталог clickhouse, но роль не загружается с ansible-galaxy. Значения всех файлов по умолчанию.
 Ну и после запуска теста, видим ошибку (логи выше). Каталог тоже загрузил в репо (clickhouse).
 
 3. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
