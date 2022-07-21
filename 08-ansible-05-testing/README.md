@@ -11,6 +11,8 @@
 ### Molecule
 
 1. Запустите  `molecule test -s centos7` внутри корневой директории clickhouse-role, посмотрите на вывод команды.
+
+Ответ:
 ```bash
 user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing$ molecule init role clickhouse -d docker
 CRITICAL Outside collections you must mention role namespace like: molecule init role 'acme.myrole'. Be sure you use only lowercase characters and underlines. See https://galaxy.ansible.com/docs/contributing/creating_role.html
