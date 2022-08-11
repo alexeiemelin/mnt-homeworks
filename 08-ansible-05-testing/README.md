@@ -14,27 +14,431 @@
 
 Ответ:
 ```bash
-user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing$ molecule init role clickhouse -d docker
-CRITICAL Outside collections you must mention role namespace like: molecule init role 'acme.myrole'. Be sure you use only lowercase characters and underlines. See https://galaxy.ansible.com/docs/contributing/creating_role.html
-user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing$ molecule init role acme.clickhouse -d docker
-INFO     Initializing new role clickhouse...
-Using /etc/ansible/ansible.cfg as config file
-- Role clickhouse was created successfully
-Invalid -W option ignored: unknown warning category: 'CryptographyDeprecationWarning'
-Invalid -W option ignored: unknown warning category: 'CryptographyDeprecationWarning'
-localhost | CHANGED => {"backup": "","changed": true,"msg": "line added"}
-INFO     Initialized role in /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing/clickhouse successfully.
-user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing$ cd clickhouse
-user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-05-testing/clickhouse$ molecule test -s centos7
-CRITICAL 'molecule/centos7/molecule.yml' glob failed.  Exiting.
+~/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse$ molecule test -s centos_7
+INFO     centos_7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun with role_name_check=0...
+INFO     Set ANSIBLE_LIBRARY=/home/user/.cache/ansible-compat/7e099f/modules:/home/user/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+INFO     Set ANSIBLE_COLLECTIONS_PATH=/home/user/.cache/ansible-compat/7e099f/collections:/home/user/.ansible/collections:/usr/share/ansible/collections
+INFO     Set ANSIBLE_ROLES_PATH=/home/user/.cache/ansible-compat/7e099f/roles:/home/user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+INFO     Using /home/user/.cache/ansible-compat/7e099f/roles/alexeysetevoi.clickhouse symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > lint
+WARNING: PATH altered to include /usr/bin
+WARNING  Loading custom .yamllint config file, this extends our internal yamllint config.
+WARNING  Listing 1 violation(s) that are fatal
+risky-file-permissions: File permissions unset or incorrect
+tasks/install/apt.yml:45 Task/Handler: Hold specified version during APT upgrade | Package installation
+
+You can skip specific rules or tags by adding them to your configuration file:
+# .ansible-lint
+warn_list:  # or 'skip_list' to silence them completely
+  - experimental  # all rules tagged as experimental
+
+Finished with 0 failure(s), 1 warning(s) on 57 files.
+/bin/bash: line 2: flake8: command not found
+WARNING  Retrying execution failure 127 of: y a m l l i n t   . 
+ a n s i b l e - l i n t 
+ f l a k e 8 
+
+CRITICAL Lint failed with error code 127
+WARNING  An error occurred during the test sequence action: 'lint'. Cleaning up.
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/user/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > destroy
+INFO     Sanity checks: 'docker'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos_7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=centos_7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
 ```
-Делаем init role clickhouse, создается каталог clickhouse, но роль не загружается с ansible-galaxy. Значения всех файлов по умолчанию.
-Ну и после запуска теста, видим ошибку (логи выше). Каталог тоже загрузил в репо (clickhouse).
 
 3. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
+```bash
+user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role$ molecule init scenario --driver-name docker
+INFO     Initializing new scenario default...
+INFO     Initialized scenario in /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role/molecule/default successfully.
+```
+
 4. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
-5. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
-6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+
+Ответ:
+```bash
+user:~/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role$ molecule test
+INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Guessed /home/user/PycharmProjects/mnt-homeworks-2 as project root directory
+WARNING  Computed fully qualified role name of vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /home/user/.cache/ansible-lint/e136f7/roles/vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/user/.cache/ansible-lint/e136f7/roles
+INFO     Running default > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > lint
+INFO     Lint is disabled.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'docker'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+
+playbook: /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role/molecule/default/converge.yml
+INFO     Running default > create
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None) 
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True})
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}) 
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:7) 
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'failed': 0, 'started': 1, 'finished': 0, 'ansible_job_id': '745731445736.3690', 'results_file': '/home/user/.ansible_async/745731445736.3690', 'changed': True, 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+
+INFO     Running default > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Running default > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos7]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib] ****************************************
+changed: [centos7]
+
+TASK [vector-role : Install Vector] ********************************************
+changed: [centos7]
+
+TASK [vector-role : Vector | Template config] **********************************
+changed: [centos7]
+
+TASK [vector-role : Vector | Create systemd unit] ******************************
+changed: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Running default > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos7]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib] ****************************************
+ok: [centos7]
+
+TASK [vector-role : Install Vector] ********************************************
+ok: [centos7]
+
+TASK [vector-role : Vector | Template config] **********************************
+ok: [centos7]
+
+TASK [vector-role : Vector | Create systemd unit] ******************************
+ok: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Running default > side_effect
+WARNING  Skipping, side effect playbook not configured.
+INFO     Running default > verify
+INFO     Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Example assertion] *******************************************************
+ok: [centos7] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+```
+
+6. Добавьте несколько assert'ов в verify.yml файл для проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
+
+Ответ:
+
+```bash
+user@user:~/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role$ molecule test
+INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Guessed /home/user/PycharmProjects/mnt-homeworks-2 as project root directory
+WARNING  Computed fully qualified role name of vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /home/user/.cache/ansible-lint/e136f7/roles/vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/user/.cache/ansible-lint/e136f7/roles
+INFO     Running default > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > lint
+INFO     Lint is disabled.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'docker'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+
+playbook: /home/user/PycharmProjects/mnt-homeworks-2/08-ansible-04-role/playbook/roles/vector-role/molecule/default/converge.yml
+INFO     Running default > create
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None) 
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True})
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}) 
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:7) 
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'failed': 0, 'started': 1, 'finished': 0, 'ansible_job_id': '384391794770.6425', 'results_file': '/home/user/.ansible_async/384391794770.6425', 'changed': True, 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'centos7', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+
+INFO     Running default > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Running default > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos7]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib] ****************************************
+changed: [centos7]
+
+TASK [vector-role : Install Vector] ********************************************
+changed: [centos7]
+
+TASK [vector-role : Vector | Template config] **********************************
+changed: [centos7]
+
+TASK [vector-role : Vector | Create systemd unit] ******************************
+changed: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Running default > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos7]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib] ****************************************
+ok: [centos7]
+
+TASK [vector-role : Install Vector] ********************************************
+ok: [centos7]
+
+TASK [vector-role : Vector | Template config] **********************************
+ok: [centos7]
+
+TASK [vector-role : Vector | Create systemd unit] ******************************
+ok: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Running default > side_effect
+WARNING  Skipping, side effect playbook not configured.
+INFO     Running default > verify
+INFO     Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Example assertion] *******************************************************
+ok: [centos7] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Vector Validate] *********************************************************
+ok: [centos7]
+
+TASK [Vector Version] **********************************************************
+ok: [centos7]
+
+PLAY RECAP *********************************************************************
+centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=centos7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+```
+
+8. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
 ### Tox
 
