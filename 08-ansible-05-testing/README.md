@@ -488,10 +488,13 @@ ERROR:   py39-ansible30: commands failed
 ```bash
 базовый тест: 
 https://github.com/alexeiemelin/mnt-homeworks/tree/MNT-13/08-ansible-05-testing/vector-role/molecule/default
+
 облеченный тест: 
 https://github.com/alexeiemelin/mnt-homeworks/tree/MNT-13/08-ansible-05-testing/vector-role/molecule/light
+
 dockerfile: 
 https://github.com/alexeiemelin/mnt-homeworks/blob/MNT-13/08-ansible-05-testing/Dockerfile
+
 tox.ini: 
 https://github.com/alexeiemelin/mnt-homeworks/blob/MNT-13/08-ansible-05-testing/example/tox.ini
 ```
