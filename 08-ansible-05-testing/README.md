@@ -485,7 +485,7 @@ ERROR:   py39-ansible30: commands failed
 7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Ссылка на репозиторий являются ответами на домашнее задание. Не забудьте указать в ответе теги решений Tox и Molecule заданий.
-
+```bash
 базовый тест: 
 https://github.com/alexeiemelin/mnt-homeworks/tree/MNT-13/08-ansible-05-testing/vector-role/molecule/default
 облеченный тест: 
@@ -494,6 +494,7 @@ dockerfile:
 https://github.com/alexeiemelin/mnt-homeworks/blob/MNT-13/08-ansible-05-testing/Dockerfile
 tox.ini: 
 https://github.com/alexeiemelin/mnt-homeworks/blob/MNT-13/08-ansible-05-testing/example/tox.ini
+```
 
 ## Необязательная часть
 
