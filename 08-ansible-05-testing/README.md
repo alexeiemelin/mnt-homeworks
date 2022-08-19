@@ -327,7 +327,7 @@ ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Con
 
 TASK [Build an Ansible compatible image (new)] *********************************
 skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:7) 
-
+ 
 TASK [Create docker network(s)] ************************************************
 
 TASK [Determine the CMD directives] ********************************************
@@ -445,9 +445,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 1. Добавьте в директорию с vector-role файлы из [директории](./example)
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it <image_name> /bin/bash`, где path_to_repo - путь до корня репозитория с vector-role на вашей файловой системе.
 
-Ответ: dockerfile - не рабочий. Увидел, что в репозитории лекции обновилась информация, собрал докер из образа:
-aragast/netology:latest 
-
+Ответ: dockerfile - не рабочий. Собрал свой. Важно еще потом вручную запустить docker: "dockerd &"
 
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
 4. Создайте облегчённый сценарий для `molecule`. Проверьте его на исполнимость.
@@ -465,22 +463,7 @@ commands =
 
 6. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 
-Ответ: dockerfile - не рабочий. Попробовал собрать свой контейнер из dockerfile. 
-https://github.com/alexeiemelin/mnt-homeworks/blob/MNT-13/08-ansible-05-testing/Dockerfile
-
-Тест молекулы проходит, но tox - нет.
-Увидел, что в репозитории лекции обновилась информация, попробовал запустить tox из докера:
-aragast/netology:latest - результат такой же. Далее прилагаю конец лога с ошибками.
-
-```bash
-docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
-ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible30/bin/molecule test -s light --destroy always (exited with code 1)
-____________________________________________________________________ summary _____________________________________________________________________
-ERROR:   py37-ansible210: commands failed
-ERROR:   py37-ansible30: commands failed
-ERROR:   py39-ansible210: commands failed
-ERROR:   py39-ansible30: commands failed
-```
+Ответ:
 
 7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
