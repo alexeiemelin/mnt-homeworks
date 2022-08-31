@@ -50,6 +50,17 @@
 P.S.: если при запуске некоторые контейнеры будут падать с ошибкой - проставьте им режим `Z`, например
 `./data:/var/lib:Z`
 
+
+Ответ:
+
+```bash
+user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:8086/ping
+user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:8888
+<!DOCTYPE html><html><head><meta http-equiv="Content-type" content="text/html; charset=utf-8"><title>Chronograf</title><link rel="icon shortcut" href="/favicon.fa749080.ico"><link rel="stylesheet" href="/src.9cea3e4e.css"></head><body> <div id="react-root" data-basepath=""></div> <script src="/src.a969287c.js"></script> </body></html>user@user:~/pycharm-community-2021.3/bin$ 
+user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:9092/kapacitor/v1/ping
+```
+<img src="~/10-monitoring-02-systems/0.png">
+
 4. Перейдите в веб-интерфейс Chronograf (`http://localhost:8888`) и откройте вкладку `Data explorer`.
 
     - Нажмите на кнопку `Add a query`
@@ -61,6 +72,10 @@ P.S.: если при запуске некоторые контейнеры б�
 
 Для выполнения задания приведите скриншот с отображением метрик утилизации места на диске 
 (disk->host->telegraf_container_id) из веб-интерфейса.
+
+Ответ:
+
+<img src="~/10-monitoring-02-systems/1.png">
 
 5. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
 Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
@@ -88,6 +103,11 @@ P.S.: если при запуске некоторые контейнеры б�
 
 После настройке перезапустите telegraf, обновите веб интерфейс и приведите скриншотом список `measurments` в 
 веб-интерфейсе базы telegraf.autogen . Там должны появиться метрики, связанные с docker.
+
+Ответ:
+
+<img src="~/10-monitoring-02-systems/2.png">
+
 
 Факультативно можете изучить какие метрики собирает telegraf после выполнения данного задания.
 
