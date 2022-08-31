@@ -59,7 +59,7 @@ user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:8888
 <!DOCTYPE html><html><head><meta http-equiv="Content-type" content="text/html; charset=utf-8"><title>Chronograf</title><link rel="icon shortcut" href="/favicon.fa749080.ico"><link rel="stylesheet" href="/src.9cea3e4e.css"></head><body> <div id="react-root" data-basepath=""></div> <script src="/src.a969287c.js"></script> </body></html>user@user:~/pycharm-community-2021.3/bin$ 
 user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:9092/kapacitor/v1/ping
 ```
-<img src="~/10-monitoring-02-systems/0.png">
+<img src="0.png">
 
 4. Перейдите в веб-интерфейс Chronograf (`http://localhost:8888`) и откройте вкладку `Data explorer`.
 
@@ -75,7 +75,7 @@ user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:9092/kapacitor/v
 
 Ответ:
 
-<img src="~/10-monitoring-02-systems/1.png">
+<img src="1.png">
 
 5. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
 Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
@@ -106,7 +106,7 @@ user@user:~/pycharm-community-2021.3/bin$ curl http://localhost:9092/kapacitor/v
 
 Ответ:
 
-<img src="~/10-monitoring-02-systems/2.png">
+<img src="2.png">
 
 
 Факультативно можете изучить какие метрики собирает telegraf после выполнения данного задания.
