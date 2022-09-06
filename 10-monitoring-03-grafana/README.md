@@ -18,6 +18,16 @@
 
 В решении приведите скриншоты тестовых событий из каналов нотификаций.
 
+Ответ:
+
+```bash
+$ docker-compose up -d
+Creating network "monitoringstack_monitoring" with driver "bridge"
+Creating node-exporter ... done
+Creating prometheus    ... done
+Creating grafana       ... done
+```
+
 ## Обязательные задания
 
 ### Задание 1
@@ -28,6 +38,10 @@
 Подключите поднятый вами prometheus как источник данных.
 
 Решение домашнего задания - скриншот веб-интерфейса grafana со списком подключенных Datasource.
+
+Ответ:
+
+<img src="/Screenshots/1.png">
 
 ## Задание 2
 Изучите самостоятельно ресурсы:
@@ -41,6 +55,17 @@
 - Количество места на файловой системе
 
 Для решения данного ДЗ приведите promql запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+
+Ответ: 
+
+```bash
+Не пойму в чем проблема, вроде нет ошибок в формуле, но графики не строятся. 
+Отдельно метрики по node_cpu_seconds_total показываются.
+
+100 - (avg by (instance) (rate(node_cpu_seconds_total{job="node",mode="idle"}[1m])) * 100)
+```
+
+<img src="/Screenshots/2.png">
 
 ## Задание 3
 Создайте для каждой Dashboard подходящее правило alert (можно обратиться к первой лекции в блоке "Мониторинг").
