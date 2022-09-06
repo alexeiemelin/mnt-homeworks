@@ -41,7 +41,7 @@ Creating grafana       ... done
 
 Ответ:
 
-<img src="/Screenshots/1.png">
+<img src="Screenshots/1.png">
 
 ## Задание 2
 Изучите самостоятельно ресурсы:
@@ -65,7 +65,7 @@ Creating grafana       ... done
 100 - (avg by (instance) (rate(node_cpu_seconds_total{job="node",mode="idle"}[1m])) * 100)
 ```
 
-<img src="/Screenshots/2.png">
+<img src="Screenshots/2.png">
 
 ## Задание 3
 Создайте для каждой Dashboard подходящее правило alert (можно обратиться к первой лекции в блоке "Мониторинг").
