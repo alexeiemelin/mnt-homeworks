@@ -44,6 +44,20 @@ Filebeat следует сконфигурировать для отправки
 - docker-compose манифест (если вы не использовали директорию help)
 - ваши yml конфигурации для стека (если вы не использовали директорию help)
 
+Ответ:
+
+```
+user@user:~/PycharmProjects/mnt-homeworks-2/10-monitoring-04-elk/help$ docker ps
+CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+163c6fc9468f   elastic/filebeat:7.11.1   "/usr/bin/tini -- /u…"   11 seconds ago   Up 10 seconds                                                                   filebeat
+3f3794656d19   kibana:7.11.1             "/bin/tini -- /usr/l…"   12 seconds ago   Up 11 seconds   0.0.0.0:5601->5601/tcp, :::5601->5601/tcp                       kibana
+9ef7e1d38a30   logstash:7.11.1           "/usr/local/bin/dock…"   12 seconds ago   Up 11 seconds   5044/tcp, 9600/tcp, 0.0.0.0:5046->5046/tcp, :::5046->5046/tcp   logstash
+07fe7347add0   elasticsearch:7.11.1      "/bin/tini -- /usr/l…"   13 seconds ago   Up 12 seconds   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 9300/tcp             es-hot
+bcef85bc05e4   elasticsearch:7.11.1      "/bin/tini -- /usr/l…"   14 seconds ago   Up 13 seconds   9200/tcp, 9300/tcp                                              es-warm
+02c662757419   python:3.9-alpine         "python3 /opt/run.py"    14 seconds ago   Up 13 seconds                                                                   some_app
+```
+<img src="Screenshots/1.png">
+
 ## Задание 2
 
 Перейдите в меню [создания index-patterns  в kibana](http://localhost:5601/app/management/kibana/indexPatterns/create)
